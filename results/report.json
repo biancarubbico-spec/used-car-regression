@@ -1,0 +1,72 @@
+{
+  "data": {
+    "source": "Instructor-provided used_car_sales.csv and auction_lots.csv",
+    "historical_period": "Last year, as described in the prompt; no exact dates supplied",
+    "historical_rows": 240,
+    "training_rows": 168,
+    "test_rows": 72,
+    "auction_rows": 40,
+    "random_seed": 42,
+    "readiness_cost": 1500
+  },
+  "outcome": "Sale_Price (USD)",
+  "selected_features": [
+    "Mileage_K",
+    "Age_Years",
+    "Horsepower",
+    "Accident"
+  ],
+  "selection_reason": "Dropped Num_Owners: full-model p-value exceeds 0.05 and removing it improves training adjusted R-squared. No test data used for selection.",
+  "training_adjusted_r2": 0.8698345468620651,
+  "full_training_adjusted_r2": 0.8690543732064506,
+  "reduced_training_adjusted_r2": 0.8698345468620651,
+  "full_owners_p_value": 0.865345892002698,
+  "coefficients": {
+    "const": 21762.398033120386,
+    "Mileage_K": -78.15329223996468,
+    "Age_Years": -1291.6310574144081,
+    "Horsepower": 75.02035253308597,
+    "Accident": -2176.6377249474845
+  },
+  "p_values": {
+    "const": 7.353145665451843e-49,
+    "Mileage_K": 4.316370372662388e-08,
+    "Age_Years": 1.1585725664051427e-11,
+    "Horsepower": 7.785570120821682e-35,
+    "Accident": 3.253141515558193e-05
+  },
+  "metrics": {
+    "baseline": {
+      "test_r2": -0.013677853506103954,
+      "test_rmse": 6494.153971747817,
+      "cars_bought": 14,
+      "losing_cars": 10,
+      "auction_profit": -6000.0
+    },
+    "v1": {
+      "test_r2": 0.8226790130498027,
+      "test_rmse": 2716.143256382658,
+      "cars_bought": 17,
+      "losing_cars": 6,
+      "auction_profit": 15800.0
+    }
+  },
+  "new_car": {
+    "Lot": 1,
+    "Mileage_K": 71,
+    "Age_Years": 6,
+    "Horsepower": 120,
+    "Accident": "no",
+    "Num_Owners": 3,
+    "Auction_Price": 21500
+  },
+  "new_car_decision": {
+    "predicted_sale_price": 17466.17024356676,
+    "maximum_break_even_bid": 15966.170243566761,
+    "decision": "pass",
+    "baseline_decision": "buy",
+    "baseline_prediction": 25851.190476190477
+  },
+  "incremental_profit": 21800.0,
+  "rmse_reduction_pct": 58.17556423517253
+}
